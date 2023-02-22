@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import "./App.css";
 import Avatar from "boring-avatars";
-import { Progress, Form, InputNumber, Button } from "antd";
+import { Progress, Form, InputNumber, Button, Input } from "antd";
 
 function App() {
   const [moneyDailyState, setMoneyDailyState] = useState<string>();
@@ -79,16 +79,20 @@ function App() {
           onFinish={onFinish}
         >
           <Form.Item label="月薪" name={"base"}>
-            <InputNumber min={0} addonAfter="元" />
+            {/* <InputNumber min={0} addonAfter="元" /> */}
+            <Input type="number" addonAfter="元" />
           </Form.Item>
           <Form.Item label="每月工作天数" name={"day"}>
-            <InputNumber min={1} max={31} addonAfter="天" />
+            {/* <InputNumber min={1} max={31} addonAfter="天" /> */}
+            <Input type="number" addonAfter="天" />
           </Form.Item>
           <Form.Item label="今日预计工时" name={"hour"}>
-            <InputNumber min={1} max={24} addonAfter="小时" />
+            {/* <InputNumber min={1} max={24} addonAfter="小时" /> */}
+            <Input type="number" addonAfter="小时" />
           </Form.Item>
           <Form.Item label="今日已工作工时" name={"alreadyBurnedHour"}>
-            <InputNumber min={0} max={24} addonAfter="小时" />
+            {/* <InputNumber min={0} max={24} addonAfter="小时" /> */}
+            <Input type="number" addonAfter="小时" />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 6, span: 14 }}>
             <Button type="primary" htmlType="submit">
