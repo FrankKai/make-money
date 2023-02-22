@@ -9,4 +9,13 @@
 </p>
 
 ## 下载链接
-macOS: [make-money_0.0.0_x64.dmg](./download/make-money_0.0.0_x64.dmg)
+- macOS: [make-money_0.0.0_x64.dmg（暂无开发者身份，下载后无法打开，可以自行构建或者找我要dmg文件）](./download/make-money_0.0.0_x64.dmg)
+- windows: TODO
+
+## 构建dmg文件
+```js
+yarn
+sudo yarn tauri build
+```
+- 构建完成后，会自动打开安装镜像
+- 若需要分享给其他人安装，可以将/make-money/src-tauri/target/release/bundle/dmg/make-money_0.0.0_x64.dmg中的dmg文件复制给他人
