@@ -9,4 +9,4 @@
 </p>
 
 ## 下载链接
-macOS: [make-money_0.0.0_x64.dmg](./../download/make-money_0.0.0_x64.dmg)
+macOS: [make-money_0.0.0_x64.dmg](./download/make-money_0.0.0_x64.dmg)
