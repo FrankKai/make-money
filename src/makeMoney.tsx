@@ -64,9 +64,11 @@ function App() {
         <div>{TIP}</div>
         <div className="progress-container">
           <Progress
+            key={progressState}
             percent={Number(progressState)}
             strokeColor={{ "0%": "#108ee9", "100%": "#87d068" }}
             strokeWidth={30}
+            status={'active'}
           />
         </div>
       </header>

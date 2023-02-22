@@ -5,7 +5,8 @@
 激活打工人赚钱欲！！！
 
 <p align="center">
-  <img src="https://imgur.com/EUCZEB6.png" />
+  <!-- <img src="https://imgur.com/EUCZEB6.png" /> -->
+  <img src="https://imgur.com/KQzZkAF.gif" />
 </p>
 
 ## 下载链接
