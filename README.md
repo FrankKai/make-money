@@ -19,3 +19,5 @@ sudo yarn tauri build
 ```
 - 构建完成后，会自动打开安装镜像
 - 若需要分享给其他人安装，可以将/make-money/src-tauri/target/release/bundle/dmg/make-money_0.0.0_x64.dmg中的dmg文件复制给他人
+
+灵感来源于[MoneyProgress](https://github.com/Lakr233/MoneyProgress)及daily work
