@@ -30,7 +30,7 @@ function App() {
     let startSecond = alreadyBurnedHour ? alreadyBurnedHour * 60 * 60 : 0;
     let moneyAlreadyEarned = 0;
     const timer = setInterval(() => {
-      startSecond += 5;
+      startSecond += TIMER_SECOND / 1000;
       progress = startSecond / seconds;
       moneyAlreadyEarned = moneyDaily * progress;
       progress = progress * 100;
@@ -68,7 +68,7 @@ function App() {
             percent={Number(progressState)}
             strokeColor={{ "0%": "#108ee9", "100%": "#87d068" }}
             strokeWidth={30}
-            status={'active'}
+            status={"active"}
           />
         </div>
       </header>
