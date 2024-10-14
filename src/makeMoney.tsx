@@ -29,8 +29,17 @@ function App() {
     let progress = 0;
     let startSecond = alreadyBurnedHour ? alreadyBurnedHour * 60 * 60 : 0;
     let moneyAlreadyEarned = 0;
+
+    let startTime = Date.now(); // 使用Date.now()，避免setInterval的累计误差问题。原因：js的执行是在浏览器的主线程，而主线程是单线程的，也就是说同一时间只能执行一个任务，当setInterval中的回调函数需要执行时，此时可能存在其他任务占用，从而延迟执行回到函数造成误差
+
     const timer = setInterval(() => {
-      startSecond += TIMER_SECOND / 1000;
+      const latestTime = Date.now();
+
+      const deltaSecond = (latestTime - startTime) / 1000; // 计算自定时器开始以来经过的时间（秒）
+      startSecond += deltaSecond;
+
+      startTime = latestTime; // 将startTime更新问上一次的时间
+
       progress = startSecond / seconds;
       moneyAlreadyEarned = moneyDaily * progress;
       progress = progress * 100;
