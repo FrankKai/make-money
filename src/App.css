@@ -18,3 +18,9 @@
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+.language-switcher {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

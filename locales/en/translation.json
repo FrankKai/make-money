@@ -1,0 +1,14 @@
+{
+  "appName": "Worker's Earning Progress Bar",
+  "tip": "Activate worker's earning desire!!!",
+  "monthlySalary": "Monthly Salary",
+  "workingDays": "Working Days",
+  "expectedHours": "Expected Hours",
+  "alreadyWorkedHours": "Already Worked Hours",
+  "startWorking": "Start Working",
+  "expectedEarnings": "Expected to earn {{amount}} dollars today",
+  "alreadyEarned": "Already earned {{amount}} dollars",
+  "yuan": "dollars",
+  "days": "days",
+  "hours": "hours"
+}
