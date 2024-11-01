@@ -27,4 +27,8 @@ sudo yarn tauri build
 构建时若遇到报错：
 
 1. Blocking waiting for file lock on package cache。运行`rm -rf ~/.cargo/.package-cache`再重新构建即可。
-2. 无权限时 sudo yarn build
+2. failed to run bundle_dmg.sh, 运行`sudo yarn tauri build`重试一次
+
+## 本地开发预览
+1. sudo yarn build
+2. yarn preview
