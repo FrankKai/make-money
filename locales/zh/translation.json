@@ -1,0 +1,14 @@
+{
+  "appName": "打工人挣钱进度条",
+  "tip": "激活打工人赚钱欲！！！",
+  "monthlySalary": "月薪",
+  "workingDays": "每月工作天数",
+  "expectedHours": "今日预计工时",
+  "alreadyWorkedHours": "今日已工作工时",
+  "startWorking": "开始打工",
+  "expectedEarnings": "今日预计赚{{amount}}元",
+  "alreadyEarned": "已经赚了{{amount}}元",
+  "yuan": "元",
+  "days": "天",
+  "hours": "小时"
+}

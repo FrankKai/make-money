@@ -24,4 +24,7 @@ sudo yarn tauri build
 灵感来源于[MoneyProgress](https://github.com/Lakr233/MoneyProgress)及daily work
 
 
-构建时若遇到报错：Blocking waiting for file lock on package cache。运行`rm -rf ~/.cargo/.package-cache`再重新构建即可。
+构建时若遇到报错：
+
+1. Blocking waiting for file lock on package cache。运行`rm -rf ~/.cargo/.package-cache`再重新构建即可。
+2. 无权限时 sudo yarn build

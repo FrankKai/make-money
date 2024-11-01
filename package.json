@@ -13,8 +13,10 @@
     "@tauri-apps/api": "^1.2.0",
     "antd": "^5.2.2",
     "boring-avatars": "^1.7.0",
+    "i18next": "^23.16.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-i18next": "^15.1.0"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.2.2",
