@@ -6,8 +6,8 @@
   "expectedHours": "Expected Hours Today",
   "alreadyWorkedHours": "Already Worked Hours Today",
   "startWorking": "Start Working",
-  "expectedEarnings": "Expected to earn {{amount}} yuan today",
-  "alreadyEarned": "Already earned {{amount}} yuan",
+  "expectedEarnings": "Expected to earn {{amount}} dollars today",
+  "alreadyEarned": "Already earned {{amount}} dollars",
   "yuan": "dollars",
   "days": "days",
   "hours": "hours"
