@@ -10,7 +10,8 @@
 </p>
 
 ## 下载链接
-- macOS: [make-money_0.0.0_x64.dmg](./download/make-money_0.0.0_x64.dmg)
+- macOS(intel): [make-money_0.0.0_x64.dmg](./download/make-money_0.0.0_x64.dmg)
+- macOS(M1,M2,M3): [make-money_0.0.0_aarch64.dmg](./download/make-money_0.0.0_aarch64.dmg)
 - windows: [make-money.exe](./download/make-money.exe)
 
 ## 构建macOS可用的dmg文件
