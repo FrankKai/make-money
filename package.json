@@ -11,13 +11,15 @@
     "tb": "sudo yarn tauri build",
     "tauri-build-mac-intel": "sudo yarn tauri build --target x86_64-apple-darwin",
     "tauri-build-mac-m": "sudo yarn tauri build --target aarch64-apple-darwin",
+    "tauri-build-mac-universe": "sudo yarn tauri build -- --target universal-apple-darwin",
     "tauri-build-windows": "sudo yarn tauri build --runner cargo-xwin --target x86_64-pc-windows-msvc",
-    "tarui-build-all": "yarn tauri-build-mac-intel && yarn tauri-build-mac-m && yarn tauri-build-windows",
+    "tauri-build-all": "yarn tauri-build-mac-universe && yarn tauri-build-mac-intel && yarn tauri-build-mac-m && yarn tauri-build-windows",
     "rm-target": "sudo rm -rf src-tauri/target",
-    "copy-intel": "cp src-tauri/target/x86_64-apple-darwin/release/bundle/dmg/make-money_0.0.0_x64.dmg download/",
-    "copy-m": "cp src-tauri/target/aarch64-apple-darwin/release/bundle/dmg/make-money_0.0.0_aarch64.dmg download/",
+    "copy-mac-intel": "cp src-tauri/target/x86_64-apple-darwin/release/bundle/dmg/make-money_0.0.0_x64.dmg download/",
+    "copy-mac-m": "cp src-tauri/target/aarch64-apple-darwin/release/bundle/dmg/make-money_0.0.0_aarch64.dmg download/",
+    "copy-mac-universe": "cp src-tauri/target/universal-apple-darwin/release/bundle/macos/rw.make-money_0.0.0_universal.dmg download/",
     "copy-windows": "cp src-tauri/target/x86_64-pc-windows-msvc/release/make-money.exe download/",
-    "copy-all": "yarn copy-intel && yarn copy-m && yarn copy-windows"
+    "copy-all": "yarn copy-mac-universe && yarn copy-intel && yarn copy-m && yarn copy-windows"
   },
   "dependencies": {
     "@tauri-apps/api": "^1.2.0",
