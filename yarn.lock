@@ -729,11 +729,6 @@ array-tree-filter@^2.1.0:
   resolved "https://registry.npmmirror.com/array-tree-filter/-/array-tree-filter-2.1.0.tgz#873ac00fec83749f255ac8dd083814b4f6329190"
   integrity sha512-4ROwICNlNw/Hqa9v+rk5h22KjmzB1JGTMVKP2AKJBOCgb0yL0ASf0+YvCcLNNwquOHNX48jkeZIJ3a+oOQqKcw==
 
-boring-avatars@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.npmmirror.com/boring-avatars/-/boring-avatars-1.7.0.tgz#70ac7146bbf37d8e69a35544b24f1d75558f868a"
-  integrity sha512-ZNHd8J7C/V0IjQMGQowLJ5rScEFU23WxePigH6rqKcT2Esf0qhYvYxw8s9i3srmlfCnCV00ddBjaoGey1eNOfA==
-
 browserslist@^4.21.3:
   version "4.21.5"
   resolved "https://registry.npmmirror.com/browserslist/-/browserslist-4.21.5.tgz#75c5dae60063ee641f977e00edd3cfb2fb7af6a7"

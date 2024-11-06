@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import "./App.css";
 import { Progress, Form, InputNumber, Button, Input, Select } from "antd";
 import { useTranslation } from "react-i18next";
@@ -73,13 +73,19 @@ function App() {
 
   const handleLanguageChange = (value: string) => {
     i18n.changeLanguage(value);
+    const coins = coinsRef.current;
+    coins.forEach((coin) => coin.remove()); // 移除所有 coin 元素
+    coinsRef.current = []; // 清空 coins 数组
+    clearInterval(intervalRef.current);
   };
 
   const containerRef = useRef<HTMLDivElement>(null);
+  const coinsRef = useRef<HTMLImageElement[]>([]);
+  const intervalRef = useRef<any>();
 
-  useEffect(() => {
+  const createCoins = useCallback(() => {
     const container = containerRef.current;
-    const coins = [] as any;
+    const coins = coinsRef.current;
 
     if (container) {
       const createCoin = () => {
@@ -107,10 +113,13 @@ function App() {
         createCoin();
       }
 
-      const interval = setInterval(createCoin, 1000);
-
-      return () => clearInterval(interval);
+      intervalRef.current = setInterval(createCoin, 1000);
     }
+  }, [currentLanguage]);
+
+  useEffect(() => {
+    createCoins();
+    return () => clearInterval(intervalRef.current);
   }, [currentLanguage]);
   return (
     <div className="container" ref={containerRef}>
