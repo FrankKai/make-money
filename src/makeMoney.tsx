@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import "./App.css";
-import { Progress, Form, InputNumber, Button, Input, Select } from "antd";
+import { Progress, Form, Button, Input, Select } from "antd";
 import { useTranslation } from "react-i18next";
 import "../i18n"; // 引入 i18n 配置文件
 import GoldPicture from "./images/money.png";
@@ -26,9 +26,18 @@ function App() {
     hour: number;
     alreadyBurnedHour?: number;
   }
+  const toNumber = (value: any) => {
+    const number = parseFloat(value);
+    return isNaN(number) ? 0 : number;
+  };
 
   function makingMoney(props: MakingMoneyProps) {
-    const { base, day, hour, alreadyBurnedHour } = props;
+    const { base, day, hour, alreadyBurnedHour } = {
+      base: toNumber(props.base),
+      day: toNumber(props.day),
+      hour: toNumber(props.hour),
+      alreadyBurnedHour: toNumber(props.alreadyBurnedHour),
+    };
     if (alreadyBurnedHour && alreadyBurnedHour > hour) return;
     const moneyDaily = base / day;
     const seconds = hour * 60 * 60;
