@@ -1,14 +1,17 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import "./App.css";
-import Avatar from "boring-avatars";
 import { Progress, Form, InputNumber, Button, Input, Select } from "antd";
 import { useTranslation } from "react-i18next";
 import "../i18n"; // 引入 i18n 配置文件
+import GoldPicture from "./images/money.png";
+import RMBPicture from "./images/yuan.jpeg";
+import DollarPicture from "./images/dollar.jpg";
 
 const { Option } = Select;
 
 function App() {
   const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language;
   const [moneyDailyState, setMoneyDailyState] = useState<string>();
   const [moneyAlreadyEarnedState, setMoneyAlreadyEarnedState] =
     useState<string>();
@@ -46,14 +49,14 @@ function App() {
       progress = startSecond / seconds;
       moneyAlreadyEarned = moneyDaily * progress;
       progress = progress * 100;
-      setMoneyAlreadyEarnedState(moneyAlreadyEarned.toFixed(2));
+      setMoneyAlreadyEarnedState(moneyAlreadyEarned.toFixed(1));
       setProgressState(progress.toFixed(2));
       if (startSecond >= seconds) {
         clearInterval(timer);
       }
     }, TIMER_SECOND);
     timerRef.current = timer;
-    setMoneyDailyState(moneyDaily.toFixed(2));
+    setMoneyDailyState(moneyDaily.toFixed(1));
   }
 
   const onFinish = (values: any) => {
@@ -70,12 +73,60 @@ function App() {
 
   const handleLanguageChange = (value: string) => {
     i18n.changeLanguage(value);
+    const coins = coinsRef.current;
+    coins.forEach((coin) => coin.remove()); // 移除所有 coin 元素
+    coinsRef.current = []; // 清空 coins 数组
+    clearInterval(intervalRef.current);
   };
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const coinsRef = useRef<HTMLImageElement[]>([]);
+  const intervalRef = useRef<any>();
+
+  const createCoins = useCallback(() => {
+    const container = containerRef.current;
+    const coins = coinsRef.current;
+
+    if (container) {
+      const createCoin = () => {
+        const coin = document.createElement("img");
+        coin.src = currentLanguage === "zh" ? RMBPicture : DollarPicture;
+        coin.className = "coin";
+        coin.style.left = `${Math.random() * 100}vw`;
+        coin.style.animationDelay = `${Math.random() * 5}s`;
+        container.appendChild(coin);
+        coins.push(coin);
+
+        coin.addEventListener("animationend", () => {
+          coin.remove();
+        });
+
+        if (coins.length > 100) {
+          const oldCoin = coins.shift();
+          if (oldCoin) {
+            oldCoin.remove();
+          }
+        }
+      };
+
+      for (let i = 0; i < 20; i++) {
+        createCoin();
+      }
+
+      intervalRef.current = setInterval(createCoin, 1000);
+    }
+  }, [currentLanguage]);
+
+  useEffect(() => {
+    createCoins();
+    return () => clearInterval(intervalRef.current);
+  }, [currentLanguage]);
   return (
-    <div className="container">
+    <div className="container" ref={containerRef}>
       <header>
-        <Avatar size={100} name="钱" variant="marble" />
+        <div className="money-bag-container">
+          <img src={GoldPicture} alt="Money Bag" className="money-bag" />
+        </div>
         <div className="app-name">{t("appName")}</div>
         <div>{t("tip")}</div>
         <div className="progress-container">
@@ -85,9 +136,16 @@ function App() {
             strokeColor={{ "0%": "#108ee9", "100%": "#87d068" }}
             strokeWidth={30}
             status={"active"}
+            // format={(percent) =>
+            //   moneyAlreadyEarnedState
+            //     ? `${moneyAlreadyEarnedState} (${percent}%)`
+            //     : ""
+            // }
+            percentPosition={{ align: "center", type: "inner" }}
           />
         </div>
       </header>
+
       <section>
         <Form
           labelCol={{ span: 8 }}
@@ -115,7 +173,8 @@ function App() {
           </Form.Item>
         </Form>
       </section>
-      <section>
+
+      <section className="statistic">
         <div>
           {moneyDailyState &&
             t("expectedEarnings", { amount: moneyDailyState })}
@@ -130,6 +189,7 @@ function App() {
             })}
         </div>
       </section>
+
       <div className="language-switcher">
         <Select
           defaultValue={i18n.language}

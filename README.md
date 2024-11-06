@@ -10,8 +10,9 @@
 </p>
 
 ## 下载链接
-- macOS(intel): [make-money_0.0.0_x64.dmg](./download/make-money_0.0.0_x64.dmg)
-- macOS(M1,M2,M3): [make-money_0.0.0_aarch64.dmg](./download/make-money_0.0.0_aarch64.dmg)
+- macOS (universe): [rw.make-money_0.0.0_universal.dmg](./download/rw.make-money_0.0.0_universal.dmg)
+- macOS (intel): [make-money_0.0.0_x64.dmg](./download/make-money_0.0.0_x64.dmg)
+- macOS (M series): [make-money_0.0.0_aarch64.dmg](./download/make-money_0.0.0_aarch64.dmg)
 - windows: [make-money.exe](./download/make-money.exe)
 
 ## 构建macOS可用的dmg文件
@@ -27,6 +28,11 @@ yarn tauri build --target aarch64-apple-darwin
 如果你使用的是Intel芯片：
 ```
 yarn tauri build --target x86_64-apple-darwin
+```
+
+如果想要打通用版（intel和M系列都可以用）：
+```
+sudo yarn tauri build -- --target universal-apple-darwin
 ```
 
 - 构建完成后，会自动打开安装镜像
