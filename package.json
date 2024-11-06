@@ -22,7 +22,6 @@
   "dependencies": {
     "@tauri-apps/api": "^1.2.0",
     "antd": "^5.21.6",
-    "boring-avatars": "^1.7.0",
     "i18next": "^23.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
