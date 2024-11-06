@@ -10,7 +10,7 @@
 </p>
 
 ## 下载链接
-- macOS (universe): [rw.make-money_0.0.0_universal.dmg](./download/rw.make-money_0.0.0_universal.dmg)
+- macOS (universe): [make-money_0.0.0_universal.dmg](./download/make-money_0.0.0_universal.dmg)
 - macOS (intel): [make-money_0.0.0_x64.dmg](./download/make-money_0.0.0_x64.dmg)
 - macOS (M series): [make-money_0.0.0_aarch64.dmg](./download/make-money_0.0.0_aarch64.dmg)
 - windows: [make-money.exe](./download/make-money.exe)

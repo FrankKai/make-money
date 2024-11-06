@@ -17,9 +17,9 @@
     "rm-target": "sudo rm -rf src-tauri/target",
     "copy-mac-intel": "cp src-tauri/target/x86_64-apple-darwin/release/bundle/dmg/make-money_0.0.0_x64.dmg download/",
     "copy-mac-m": "cp src-tauri/target/aarch64-apple-darwin/release/bundle/dmg/make-money_0.0.0_aarch64.dmg download/",
-    "copy-mac-universe": "cp src-tauri/target/universal-apple-darwin/release/bundle/macos/rw.make-money_0.0.0_universal.dmg download/",
+    "copy-mac-universe": "cp src-tauri/target/universal-apple-darwin/release/bundle/dmg/make-money_0.0.0_universal.dmg download/",
     "copy-windows": "cp src-tauri/target/x86_64-pc-windows-msvc/release/make-money.exe download/",
-    "copy-all": "yarn copy-mac-universe && yarn copy-intel && yarn copy-m && yarn copy-windows"
+    "copy-all": "yarn copy-mac-universe && yarn copy-mac-intel && yarn copy-mac-m && yarn copy-windows"
   },
   "dependencies": {
     "@tauri-apps/api": "^1.2.0",
