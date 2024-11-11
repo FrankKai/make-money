@@ -17,7 +17,7 @@ function Timer() {
   const [nextLevelTitle, setNextLevelTitle] = useState("");
 
   const levels = [9.5, 10, 10.5, 11, 11.5, 12];
-  const titles = t("rank.titles", { returnObjects: true });
+  const titles = t("rank.titles", { returnObjects: true }) as string[];
 
   useEffect(() => {
     if (!startTime) return;
