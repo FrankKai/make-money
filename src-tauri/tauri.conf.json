@@ -63,10 +63,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 720,
+        "height": 768,
         "resizable": true,
         "title": "make-money",
-        "width": 1280
+        "width": 1024
       }
     ]
   }
