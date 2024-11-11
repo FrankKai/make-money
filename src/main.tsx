@@ -1,14 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Link, useLocation } from "react-router-dom";
-import MakeMoney from "./pages/makeMoney";
-import Rank from "./pages/rank";
 import "./App.css";
+import { routes } from "./routes";
 
-const routes = [
-  { path: "/", label: "Money", component: MakeMoney },
-  { path: "/rank", label: "Rank", component: Rank }
-] as const;
 
 function Navigation() {
   return (
@@ -26,11 +21,11 @@ function Navigation() {
 
 function App() {
   const location = useLocation();
-  const [activeComponents, setActiveComponents] = useState<Record<string, any>>(
+  const [activeComponents, setActiveComponents] = useState<Record<string, boolean>>(
     {}
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     setActiveComponents((prev) => ({
       ...prev,
       [location.pathname]: true,
@@ -49,7 +44,7 @@ function App() {
     <div>
       <Navigation />
       <div>
-      {routes.map(route => renderComponent(route.path, route.component))}
+        {routes.map(route => renderComponent(route.path, route.component))}
       </div>
     </div>
   );

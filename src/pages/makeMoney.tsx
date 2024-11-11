@@ -6,6 +6,7 @@ import "../../i18n"; // 引入 i18n 配置文件
 import GoldPicture from "../images/money.png";
 import RMBPicture from "../images/yuan.jpeg";
 import DollarPicture from "../images/dollar.jpg";
+import type { MakingMoneyProps } from "../types";
 
 const { Option } = Select;
 
@@ -20,12 +21,6 @@ function App() {
 
   const TIMER_SECOND = 1000;
 
-  interface MakingMoneyProps {
-    base: number;
-    day: number;
-    hour: number;
-    alreadyBurnedHour?: number;
-  }
   const toNumber = (value: any) => {
     const number = parseFloat(value);
     return isNaN(number) ? 0 : number;
