@@ -1,0 +1,55 @@
+/* Clock */
+
+.rank-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background: rgb(201, 227, 223);
+}
+
+.timer-container {
+  padding: 20px;
+  /* position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); */
+  width: 60%;
+}
+
+.rank-logo {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.date-picker {
+  width: 200px;
+}
+
+.elapsed-time {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.progress-list {
+  margin-top: 20px;
+}
+
+.progress-item {
+  margin-bottom: 20px;
+}
+
+.progress-title {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.language-switcher {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

@@ -10,5 +10,26 @@
   "alreadyEarned": "Already earned {{amount}} dollars",
   "yuan": "dollars",
   "days": "days",
-  "hours": "hours"
+  "hours": "hours",
+  "rank.title": "Work Hours Rank Timer",
+  "rank.selectTime": "Please select a start time",
+  "rank.workedToday": "Worked today: {{elapsedTime}}",
+  "rank.rankProgress": "Rank Progress:",
+  "rank.currentRank": "Current Rank: {{currentLevel}}",
+  "rank.timeToNextRank": "Time to next rank ({{nextLevelTitle}}): {{timeToNextLevel}}",
+  "rank.rankTable": "Rank Table:",
+  "rank.estimatedOffTime": "Estimated off-time: {{estimatedTime}}",
+  "rank.notReached": "Not reached",
+  "rank.reachedMaxRank": "Reached the highest rank",
+  "rank.titles": [
+    "Iron 9.5 hours",
+    "Bronze 10 hours",
+    "Silver 10.5 hours M1",
+    "Gold 11 hours M2",
+    "Diamond 11.5 hours M3",
+    "Master 12 hours M4"
+  ],
+  "rank.hours": "hours",
+  "rank.minutes": "minutes",
+  "rank.seconds": "seconds"
 }

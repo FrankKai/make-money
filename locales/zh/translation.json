@@ -10,5 +10,26 @@
   "alreadyEarned": "已经赚了{{amount}}元",
   "yuan": "元",
   "days": "天",
-  "hours": "小时"
+  "hours": "小时",
+  "rank.title": "工时段位计时器",
+  "rank.selectTime": "请选择上班开始时间",
+  "rank.workedToday": "今日已工作：{{elapsedTime}}",
+  "rank.rankProgress": "段位进度：",
+  "rank.currentRank": "当前段位：{{currentLevel}}",
+  "rank.timeToNextRank": "距离下一段位（{{nextLevelTitle}}）需要：{{timeToNextLevel}}",
+  "rank.rankTable": "段位对照表：",
+  "rank.estimatedOffTime": "预计下班时间：{{estimatedTime}}",
+  "rank.notReached": "未达到",
+  "rank.reachedMaxRank": "已达到最高段位",
+  "rank.titles": [
+    "黑铁 9.5小时",
+    "青铜 10小时",
+    "白银 10.5小时 M1",
+    "黄金 11小时 M2",
+    "钻石 11.5小时 M3",
+    "王者 12小时 M4"
+  ],
+  "rank.hours": "小时",
+  "rank.minutes": "分钟",
+  "rank.seconds": "秒"
 }

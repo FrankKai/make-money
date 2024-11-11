@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import "./App.css";
+import "./makeMoney.css";
 import { Progress, Form, Button, Input, Select } from "antd";
 import { useTranslation } from "react-i18next";
-import "../i18n"; // 引入 i18n 配置文件
-import GoldPicture from "./images/money.png";
-import RMBPicture from "./images/yuan.jpeg";
-import DollarPicture from "./images/dollar.jpg";
+import "../../i18n"; // 引入 i18n 配置文件
+import GoldPicture from "../images/money.png";
+import RMBPicture from "../images/yuan.jpeg";
+import DollarPicture from "../images/dollar.jpg";
 
 const { Option } = Select;
 
