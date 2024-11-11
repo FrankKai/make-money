@@ -5,16 +5,20 @@ import MakeMoney from "./pages/makeMoney";
 import Rank from "./pages/rank";
 import "./App.css";
 
+const routes = [
+  { path: "/", label: "Money", component: MakeMoney },
+  { path: "/rank", label: "Rank", component: Rank }
+] as const;
+
 function Navigation() {
   return (
     <nav>
       <div>
-        <div>
-          <Link to="/">Money</Link>
-        </div>
-        <div>
-          <Link to="/rank">Rank</Link>
-        </div>
+        {routes.map(route => (
+          <div key={route.path}>
+            <Link to={route.path}>{route.label}</Link>
+          </div>
+        ))}
       </div>
     </nav>
   );
@@ -45,8 +49,7 @@ function App() {
     <div>
       <Navigation />
       <div>
-        {renderComponent("/", MakeMoney)}
-        {renderComponent("/rank", Rank)}
+      {routes.map(route => renderComponent(route.path, route.component))}
       </div>
     </div>
   );
