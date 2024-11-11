@@ -107,6 +107,9 @@ git-fetch-with-cli = true
 1. Blocking waiting for file lock on package cache。运行`rm -rf ~/.cargo/.package-cache`再重新构建即可。
 2. failed to run bundle_dmg.sh, 运行`sudo yarn tauri build`重试一次
 
+## 假设打出来的包不是最新的代码
+运行`yarn rm-target`
+
 
 ## 查看rust安装了几种target
 `rustup target list --installed`
