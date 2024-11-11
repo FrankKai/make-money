@@ -4,12 +4,11 @@ import { BrowserRouter as Router, Link, useLocation } from "react-router-dom";
 import "./App.css";
 import { routes } from "./routes";
 
-
 function Navigation() {
   return (
     <nav>
       <div>
-        {routes.map(route => (
+        {routes.map((route) => (
           <div key={route.path}>
             <Link to={route.path}>{route.label}</Link>
           </div>
@@ -21,9 +20,9 @@ function Navigation() {
 
 function App() {
   const location = useLocation();
-  const [activeComponents, setActiveComponents] = useState<Record<string, boolean>>(
-    {}
-  );
+  const [activeComponents, setActiveComponents] = useState<
+    Record<string, boolean>
+  >({});
 
   useEffect(() => {
     setActiveComponents((prev) => ({
@@ -44,7 +43,7 @@ function App() {
     <div>
       <Navigation />
       <div>
-        {routes.map(route => renderComponent(route.path, route.component))}
+        {routes.map((route) => renderComponent(route.path, route.component))}
       </div>
     </div>
   );
