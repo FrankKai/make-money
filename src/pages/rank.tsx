@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { DatePicker, Progress, Select } from "antd";
 import dayjs, { Dayjs } from "dayjs";
 import { useTranslation } from "react-i18next";
 import "./rank.css";
 import RankLogo from "../images/rank.png";
+import "react-step-progress-bar/styles.css";
+// @ts-ignore
+import { ProgressBar, Step } from "react-step-progress-bar";
 
 function Timer() {
   const { t, i18n } = useTranslation();
@@ -13,10 +16,19 @@ function Timer() {
   const [elapsedTime, setElapsedTime] = useState("00:00:00");
   const [overallProgress, setOverallProgress] = useState(0);
   const [currentLevel, setCurrentLevel] = useState(t("rank.notReached"));
+  const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
   const [timeToNextLevel, setTimeToNextLevel] = useState("");
   const [nextLevelTitle, setNextLevelTitle] = useState("");
 
   const levels = [9.5, 10, 10.5, 11, 11.5, 12];
+  const colors = [
+    "#4D4D4D",
+    "#CD7F32",
+    "#C0C0C0",
+    "#FFD700",
+    "#1E90FF",
+    "#FFA500",
+  ];
   const titles = t("rank.titles", { returnObjects: true }) as string[];
 
   useEffect(() => {
@@ -48,6 +60,7 @@ function Timer() {
 
       // Determine current level and time to next level
       let reachedLevel = t("rank.notReached");
+      let reachedLevelIndex = 0;
       let nextLevelTime = null;
       let nextLevelIndex = -1;
 
@@ -55,12 +68,14 @@ function Timer() {
         const targetTime = startTime.add(levels[i], "hour");
         if (now.isAfter(targetTime) || now.isSame(targetTime)) {
           reachedLevel = titles[i];
+          reachedLevelIndex = i;
         } else if (!nextLevelTime) {
           nextLevelTime = targetTime;
           nextLevelIndex = i;
         }
       }
       setCurrentLevel(reachedLevel);
+      setCurrentLevelIndex(reachedLevelIndex);
 
       if (nextLevelTime) {
         const remainingSeconds = nextLevelTime.diff(now, "second");
@@ -83,7 +98,6 @@ function Timer() {
     return () => clearInterval(interval);
   }, [startTime]);
 
-  // Handle time change
   const handleTimeChange = (value: Dayjs | null) => {
     setStartTime(value);
   };
@@ -91,6 +105,16 @@ function Timer() {
   const handleLanguageChange = (value: string) => {
     i18n.changeLanguage(value);
   };
+
+  // calculate dynamic fill background
+  const dynamicFillBackground = useMemo(() => {
+    if (currentLevelIndex === 5) {
+      return colors[5];
+    }
+    return `linear-gradient(to right, ${colors[currentLevelIndex]},  ${
+      colors[currentLevelIndex + 1]
+    })`;
+  }, [currentLevelIndex]);
   return (
     <div className="rank-container">
       <div className="timer-container">
@@ -113,20 +137,40 @@ function Timer() {
           <div className="progress-list">
             <h3>{t("rank.rankProgress")}</h3>
             <div className="progress-item">
-              <div className="progress-title">
+              <div
+                className="progress-title"
+                style={{ color: colors[currentLevelIndex] }}
+              >
                 {t("rank.currentRank", { currentLevel })}
               </div>
-              <Progress
+              <ProgressBar
+                filledBackground={dynamicFillBackground}
+                height="20px"
                 percent={overallProgress}
-                status="active"
-                strokeColor={{
-                  "0%": "#ff0000",
-                  "100%": "#00ff00",
-                }}
-                format={() => `${overallProgress.toFixed(2)}%`}
-              />
+                stepPositions={levels?.map((level) => (level / 12) * 100)}
+              >
+                {titles?.map((title, index) => (
+                  <Step transition="scale">
+                    {/* @ts-ignore */}
+                    {({ accomplished }) => (
+                      <div
+                        className={`transitionStep ${
+                          accomplished ? "accomplished" : null
+                        }`}
+                        style={{ color: colors[index] }}
+                      >
+                        <div>{title}</div>
+                        <div>|</div>
+                      </div>
+                    )}
+                  </Step>
+                ))}
+              </ProgressBar>
             </div>
-            <div className="time-to-next-level">
+            <div
+              className="time-to-next-level"
+              style={{ color: colors[currentLevelIndex + 1] }}
+            >
               {t("rank.timeToNextRank", { nextLevelTitle, timeToNextLevel })}
             </div>
             <div className="level-legend">
