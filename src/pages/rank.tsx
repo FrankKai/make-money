@@ -22,6 +22,7 @@ function Timer() {
 
   const levels = [9.5, 10, 10.5, 11, 11.5, 12];
   const colors = [
+    "#FFFFFF",
     "#4D4D4D",
     "#CD7F32",
     "#C0C0C0",
@@ -109,7 +110,7 @@ function Timer() {
   // calculate dynamic fill background
   const dynamicFillBackground = useMemo(() => {
     if (currentLevelIndex === 5) {
-      return colors[5];
+      return colors[6];
     }
     return `linear-gradient(to right, ${colors[currentLevelIndex]},  ${
       colors[currentLevelIndex + 1]
@@ -157,7 +158,7 @@ function Timer() {
                         className={`transitionStep ${
                           accomplished ? "accomplished" : null
                         }`}
-                        style={{ color: colors[index] }}
+                        style={{ color: colors[index + 1] }}
                       >
                         <div>{title}</div>
                         <div>|</div>
